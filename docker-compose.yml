@@ -12,16 +12,26 @@ services:
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
     links:
-      - Hazelcast
+      - Hazelcast-1
+      - Hazelcast-2
 
-  Hazelcast:
+  Hazelcast-1:
     image: hazelcast/hazelcast:latest
     ports:
       - "5701:5701"
     networks:
       - hazelcast
     deploy:
-      replicas: 2
+      replicas: 1
+
+  Hazelcast-2:
+    image: hazelcast/hazelcast:latest
+    ports:
+      - "5701:5701"
+    networks:
+      - hazelcast
+    deploy:
+      replicas: 1
 
 networks:
     hazelcast:
