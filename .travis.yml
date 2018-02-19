@@ -26,7 +26,6 @@ before_script:
 script:
   - docker-compose build
   - docker-compose up -d
-  - docker-compose up -d --scale Hazelcast=2
 
   # Verifications
   - sleep 60
